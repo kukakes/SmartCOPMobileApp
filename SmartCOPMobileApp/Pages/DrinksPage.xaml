@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:SmartCOPMobileApp.ViewModels"
+             xmlns:converters="clr-namespace:SmartCOPMobileApp.Converters"
+             mc:Ignorable="d"
+             x:Class="SmartCOPMobileApp.Pages.DrinksPage">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:DrinksViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <converters:DrinkBackgroundColorConverter 
+                        x:Key="drinkBackgroundColorConverter"/>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+            
+            <Label Text="SmartCOP Drinks!"
+                   FontSize="22"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold"
+                   VerticalOptions="Start" 
+                   HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView ItemsLayout="HorizontalList"
+                            ItemsSource="{Binding Drinks}"
+                            HeightRequest="100">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid WidthRequest="100"
+                              BackgroundColor="{Binding ., Converter={StaticResource drinkBackgroundColorConverter}}"
+                              Margin="10"
+                              Padding="20">
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
