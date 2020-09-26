@@ -53,11 +53,9 @@
                    FontSize="18"
                    FontAttributes="Bold"
                    Margin="0,10"/>
+            
             <Label Text="{Binding CollectionDetails}"
                    TextColor="DarkBlue"/>
-
-            <!--<Button Text="Add Drink"
-                    Command="{Binding AddDrink}"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

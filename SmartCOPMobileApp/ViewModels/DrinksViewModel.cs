@@ -43,25 +43,5 @@ namespace SmartCOPMobileApp.ViewModels
             get => $"{string.Join(". ", Drinks.Select(d => d.Description()))}.";
             set { }
         }
-
-        //ICommand _AddDrink;
-        //public ICommand AddDrink
-        //{
-        //    get 
-        //    {
-        //        if (_AddDrink == null)
-        //            _AddDrink = new Command(() =>
-        //            {
-        //                AddNewDrink();
-        //            });
-
-        //        return _AddDrink;
-        //    }
-        //}
-
-        //private void AddNewDrink()
-        //{
-        //    Random rnd; 
-        //}
     }
 }
