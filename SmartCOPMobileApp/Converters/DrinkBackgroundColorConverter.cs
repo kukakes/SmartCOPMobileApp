@@ -11,7 +11,7 @@ namespace SmartCOPMobileApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Color color = Color.Yellow;
+            Color color = Color.Transparent;
 
             Drink drink = value as Drink;
             if (drink is Juice)

@@ -13,7 +13,8 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Padding="10">
+        <StackLayout Padding="10"
+                     Spacing="20">
             <StackLayout.Resources>
                 <ResourceDictionary>
                     <converters:DrinkBackgroundColorConverter 
@@ -21,6 +22,7 @@
                 </ResourceDictionary>
             </StackLayout.Resources>
             
+            <!--Page Label-->
             <Label Text="SmartCOP Drinks!"
                    FontSize="22"
                    TextDecorations="Underline"
@@ -28,21 +30,34 @@
                    VerticalOptions="Start" 
                    HorizontalOptions="CenterAndExpand" />
 
-            <CollectionView ItemsLayout="HorizontalList"
+            <!--Drinks collection-->
+            <CollectionView ItemsLayout="VerticalList"
                             ItemsSource="{Binding Drinks}"
-                            HeightRequest="100">
+                            HorizontalOptions="Center"
+                            HeightRequest="300"
+                            BackgroundColor="Red">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid WidthRequest="100"
+                        <Grid HeightRequest="100"
                               BackgroundColor="{Binding ., Converter={StaticResource drinkBackgroundColorConverter}}"
-                              Margin="10"
-                              Padding="20">
+                              Padding="0">
                             <Label Text="{Binding Name}"
-                                   VerticalOptions="Center"/>
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Label Text="Drinks Detail:"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   Margin="0,10"/>
+            <Label Text="{Binding CollectionDetails}"
+                   TextColor="DarkBlue"/>
+
+            <!--<Button Text="Add Drink"
+                    Command="{Binding AddDrink}"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

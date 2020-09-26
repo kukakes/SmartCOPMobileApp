@@ -1,12 +1,16 @@
 ﻿using SmartCOPMobileApp.Models;
+using SmartCOPMobileApp.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SmartCOPMobileApp.ViewModels
 {
-    class DrinksViewModel
+    class DrinksViewModel : ObservableObject
     {
         public ObservableCollection<Drink> Drinks { get; set; } =
             new ObservableCollection<Drink>();
@@ -33,5 +37,31 @@ namespace SmartCOPMobileApp.ViewModels
                 IsCarbonated = true
             });
         }
+
+        public string CollectionDetails 
+        { 
+            get => $"{string.Join(". ", Drinks.Select(d => d.Description()))}.";
+            set { }
+        }
+
+        //ICommand _AddDrink;
+        //public ICommand AddDrink
+        //{
+        //    get 
+        //    {
+        //        if (_AddDrink == null)
+        //            _AddDrink = new Command(() =>
+        //            {
+        //                AddNewDrink();
+        //            });
+
+        //        return _AddDrink;
+        //    }
+        //}
+
+        //private void AddNewDrink()
+        //{
+        //    Random rnd; 
+        //}
     }
 }
